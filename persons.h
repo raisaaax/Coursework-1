@@ -12,11 +12,12 @@ class Person {
   std::string getEmail();
   std::string getEmail();
 
-  void  setName(string name);
-  void setEmail(string email);
-  void setEmail(string email);  
+  void  setName(std::string name);
+  void setEmail(std::string email);
+  void setEmail(std::string email);  
 };
 
+//classes inheriting from Person class
 
 class Librarian : public Person {
 private:
@@ -43,5 +44,22 @@ public:
     void calcFines(int memberId);
 };
 
-#endif 
+#endif
+
+class Member : public Person {
+private:
+    int memberID;
+    std::vector<Book> booksLoaned;
+
+public:
+    // Constructor
+    Member(int memberID, const std::string& name, const std::string& address, const std::string& email);
+
+    // Getters and setters
+    int getMemberID() const;
+    const std::vector<Book>& getBooksBorrowed() const;
+    void setBooksBorrowed(const std::vector<Book>& newBooksBorrowed);
+};
+
+#endif
 
