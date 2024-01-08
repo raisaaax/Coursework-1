@@ -2,7 +2,7 @@
 #define BOOK_H
 
 #include <string>
-#include "Date.h" 
+#include "date.h" 
 
 class Member; 
 
@@ -22,11 +22,12 @@ public:
 
     // Getters
     int getBookID() const;
+    Date getDueDate() const;
     std::string getBookName() const;
     std::string getAuthorFirstName() const;
     std::string getAuthorLastName() const;
     std::string getBookType() const;
-    Date getDueDate() const;
+  
     void setDueDate(const Date& newDate);
     void returnBook();
     void borrowBook(Member member, const Date& date);
