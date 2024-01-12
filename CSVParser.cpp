@@ -16,10 +16,13 @@ unordered_map<int, Book> parseCSV(string filePath)
     }
     else
     {
-        cout << "File " << filePath << " opened" << endl;
+      std::cout << "File " << filePath << " opened" << std::endl;
     }
     string line;
     bool inQuotes = false;
+
+    //skip the first header line of the CSV file
+    getline(file, line);
 
 
     while (getline(file, line))
@@ -27,6 +30,7 @@ unordered_map<int, Book> parseCSV(string filePath)
         stringstream ss(line);
         vector<string> fields;
         string field;
+	
         // Parse the line
         for (char c : line)
         {
@@ -46,6 +50,9 @@ unordered_map<int, Book> parseCSV(string filePath)
             }
         }
 
+	//add last field after the loop
+	fields.push_back(field);
+
 
         // Create a Book object and add it to the map
         int id = stoi(fields[0]);
@@ -53,7 +60,9 @@ unordered_map<int, Book> parseCSV(string filePath)
         
         string authorFirstName = fields[3];
         string authorLastName = fields[4];
-        books.emplace(id,  Book(id, name, authorFirstName, authorLastName));
+
+	
+        books.emplace(id, Book(id, name, authorFirstName, authorLastName));
     }
 
     return books;
