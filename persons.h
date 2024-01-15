@@ -1,10 +1,10 @@
-
 #ifndef PERSON_H
 #define PERSON_H
 
 #include <string>
 
 class Person {
+  
 private:
     std::string name;
     std::string address;
