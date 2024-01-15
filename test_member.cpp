@@ -2,7 +2,6 @@
 #include "member.h"
 #include "book.h"
 
-
 TEST_CASE("Member Class Tests", "[Member]") {
     // Example member details
     int memberId = 100;
