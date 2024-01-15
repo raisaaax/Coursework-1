@@ -1,7 +1,6 @@
 #include "book.h"
 #include "member.h"
-
-static Member placeholder = Member(0, "PLACEHOLDER", "PLACEHOLDER", "PLACEHOLDER" ) 
+static Member placeholder = Member(0, "PLACEHOLDER", "PLACEHOLDER", "PLACEHOLDER"); // static placeholder since Member has no default constructor
 
 Book::Book(int bookID, const std::string &bookName,
            const std::string &authorFirstName, const std::string &authorLastName)
@@ -30,9 +29,8 @@ std::string Book::getAuthorLastName() const
 
 void Book::returnBook()
 {
-  dueDate = Date();
-  borrower = &placeholder;
-  
+    dueDate = Date();
+    borrower = &placeholder;
 }
 
 void Book::borrowBook(Member member, const Date &date)
