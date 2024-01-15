@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "person.h"
+#include "persons.h"
 
 TEST_CASE("Person Class Tests", "[Person]") {
     // Example person details
