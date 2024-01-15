@@ -22,6 +22,11 @@ int Date::calculateDaysLate() {
     std::tm dateTm = {};
     std::istringstream ss(date);
     ss >> std::get_time(&dateTm, "%d-%m-%Y"); // Parse the date string
+
+    //Handle error
+    if (ss.fail()){
+      throw std::runtime_error("Failed to parse date: " + date);
+    }
     
 
     // Get the current time as time_t
@@ -40,6 +45,11 @@ int Date::calculateDaysLate() {
 
     int days =  static_cast<int>(difference);
 
-    return (days);
+    //if data is in the future, don't count those days
+    if (days > 0){
+      days = 0;
+    }
+
+    return abs(days);
 }
 
